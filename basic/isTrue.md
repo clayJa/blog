@@ -45,6 +45,7 @@
 #### 言归正传
 ##### 对于if(condition)
 对于if括号中的表达式（这里指单个变量），会被强制转化为Boolean类型，转化规则如下：
+
  类型 | 结果 
 ------ | :------:
 undefined | false  
@@ -55,6 +56,7 @@ String | 空字符串为false，其他都为true
 Object | true
 ##### 对于x == y类型判断
 结果映射为下：
+
 x | y | 结果
 ------ | :------: | :------:
 null | undefined | true
