@@ -78,6 +78,7 @@ printHello();//hello
   + sayHello: function
   + helloStr: 'Bob'
   + sayGreeting: function
+  
 在[异步计数](#asyncCounting)示例中，一秒后当程序开始执行consol.log语句时。其作用域链如下：
 + scope (匿名函数作用域)
 + scope.scope (全局作用域)
