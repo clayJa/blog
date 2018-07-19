@@ -69,8 +69,8 @@ str1 = 'goodbye';
 //将变量传递到函数中已经将其保存在函数的作用域中
 printHello();//hello
 ```
-在[Hello Bob](#user-content-helloBob)示例中，原来的字符串被保留了，因为它被传递到一个函数中，并保存在函数的作用域内，即使它在函数外部的变量被重新分配。
-在[Hello Bob](#user-content-helloBob)示例的最后一行中，console.log语句的作用域链如下：
+在[Hello Bob](#hellobob)示例中，原来的字符串被保留了，因为它被传递到一个函数中，并保存在函数的作用域内，即使它在函数外部的变量被重新分配。
+在[Hello Bob](#hellobob)示例的最后一行中，console.log语句的作用域链如下：
 - scope (匿名函数作用域)
 - cope.scope (sayGreeting函数作用域)
   + name: 'world'
@@ -78,7 +78,7 @@ printHello();//hello
   + sayHello: function
   + helloStr: 'Bob'
   + sayGreeting: function
-在异步计数示例中，一秒后当程序开始执行consol.log语句时。其作用域链如下：
+在[异步计数](#asyncCounting)示例中，一秒后当程序开始执行consol.log语句时。其作用域链如下：
 + scope (匿名函数作用域)
 + scope.scope (全局作用域)
   - i: 10
