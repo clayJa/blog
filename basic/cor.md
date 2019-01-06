@@ -87,11 +87,43 @@ http.createServer(function(req, res){
 ```
 我们预先声明一个全局的数据处理函数，并将函数名传递给服务器端，服务器端直接将数据拼接为函数参数的格式，（例如：showData({data:'hello world'})）返回给浏览器执行，那不就成功完成数据读取了吗？
 
+##### *降域*
+脚本可以将 document.domain 的值设置为其当前域或其当前域的父域。如果将其设置为其当前域的父域，则较短的域将用于后续源检查。
 
+所以，对于类似a.example.com与b.example.com之间的跨域操作，可以通过设置document.domain来规避跨域问题。
+```javascript
+document.domain = "example.com";
+```
+使用 document.domain 来允许子域安全访问其父域时，您需要在父域和子域中设置 document.domain 为相同的值。
 
+浏览器单独保存端口号。任何的赋值操作，包括 document.domain = document.domain 都会导致端口号被重写为 null 。因此 example.com:8080 不能仅通过设置 document.domain = "example.com" 来与example.com 通信。必须在他们双方中都进行赋值，以确保端口号都为 null 。
+##### *postMessage*
+window.postMessage() 方法可以安全地实现跨源通信。
 
+window.postMessage() 方法被调用时，会在所有页面脚本执行完毕之后（e.g., 在该方法之后设置的事件、之前设置的timeout 事件,etc.）向目标窗口派发一个  MessageEvent 消息。 
 
+语法:
+```javascript
+otherWindow.postMessage(message, targetOrigin, [transfer]);
+```
+otherWindow为其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames。
 
+例如：在 a.example.com/a.html 发送message，在 b.example.com/b.html 接收message。
+
+*a.html*
+```html
+<script>
+  window.frames[0].postMessage('hello','*')
+</script>
+```
+*b.html*
+```html
+<script>
+  window.addEventListener('message',function(e){
+    console.log(e.data);
+  })
+</script>
+```
 
 
 
@@ -102,3 +134,4 @@ http.createServer(function(req, res){
 [浏览器的同源策略-MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
 [CORS-MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+[postMessage-MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
