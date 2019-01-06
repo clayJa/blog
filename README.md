@@ -5,3 +5,5 @@
 #### [if(condition) VS a == b](https://github.com/clayJa/blog/blob/master/basic/isTrue.md)
 
 #### [JavaScript的作用域链](https://github.com/clayJa/blog/blob/master/basic/scopeChain.md)
+
+#### [同源策略&跨域](https://github.com/clayJa/blog/blob/master/basic/cor.md)
