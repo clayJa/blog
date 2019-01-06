@@ -124,14 +124,9 @@ otherWindow为其他窗口的一个引用，比如iframe的contentWindow属性�
   })
 </script>
 ```
-
-
-
-
-
-
 ##### 参考资料
 [浏览器的同源策略-MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
 [CORS-MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+
 [postMessage-MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
