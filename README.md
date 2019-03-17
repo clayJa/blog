@@ -9,3 +9,5 @@
 #### [同源策略&跨域](https://github.com/clayJa/blog/blob/master/basic/cor.md)
 
 #### [函数式编程](https://github.com/clayJa/blog/blob/master/concept/functional_programming.md)
+
+#### [理解面向对象](https://github.com/clayJa/blog/blob/master/concept/oo.md)
