@@ -61,6 +61,11 @@ module.exports = {
 
 
 + 添加 webpack 的 resolve 配置
++ 配置 module.rules
+  - a. jsx
+  - b. tsx
+  - c. scss
++ 配置 plugins
 ```JavaScript
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -95,11 +100,6 @@ module.exports = {
 }
 
 ```
-+ 配置 module.rules
-  - a. jsx
-  - b. tsx
-  - c. scss
-+ 配置 plugins
 #### 6. 配置webpack-dev-server 与 webpack.config.dev.js
 > yarn add webpack-dev-server --dev
 > yarn add html-webpack-plugin --dev
@@ -144,3 +144,30 @@ package.json 的 scripts 中添加 test 命令
 
 #### 11. 引入CI
 #### 12. 自定义任务
+#### 13. 根据需要引入其他loader
++ 引入 svg loader
+  - 配置rule
+    ```JavaScript
+        rules: [
+            ...
+            {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+            },
+            ...
+        ]
+    ```
+    > yarn add --dev svg-sprite-loader
+- 声明types lib/types/custom.d.tsx
+```TypeScript
+declare module '*.svg' {
+    const content: any;
+    export default content;
+}
+```
+- 配置 tsconfig.json
+```json
+  "include": [
+    "lib/**/*"
+  ],
+```
