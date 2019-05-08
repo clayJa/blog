@@ -158,16 +158,26 @@ package.json 的 scripts 中添加 test 命令
         ]
     ```
     > yarn add --dev svg-sprite-loader
-- 声明types lib/types/custom.d.tsx
-```TypeScript
-declare module '*.svg' {
-    const content: any;
-    export default content;
-}
-```
-- 配置 tsconfig.json
-```json
-  "include": [
-    "lib/**/*"
-  ],
-```
+    - 声明types lib/types/custom.d.tsx
+    ```TypeScript
+    declare module '*.svg' {
+        const content: any;
+        export default content;
+    }
+    ```
+    - 配置 tsconfig.json
+    ```json
+    "include": [
+        "lib/**/*"
+    ],
+    ```
++ 引入scss loader
+    - webpack.config.js
+    ```JavaScript
+    {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+    },
+    ```
+    >  yarn add --dev style-loader css-loader sass-loader
+    >  yarn add --dev node-sass 
